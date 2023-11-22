@@ -95,6 +95,21 @@ This project includes several entity classes that define the data structure of t
 - **Relationships:**
   - One-to-Many with `Product` entity (Mapped by `category` in `Product` class)
 
+
+## CartItem
+
+- **Entity Name:** CartItem
+- **Table Name:** cart_items
+- **Attributes:**
+  - `cartItemId` (Auto-generated)
+  - `cart`: Cart to which the item belongs (Many-to-One relationship)
+  - `product`: Product associated with the item (Many-to-One relationship)
+  - `quantity`: Quantity of the product
+  - `discount`: Discount applied to the product
+  - `productPrice`: Price of the product
+
+
+
 ## Feedback
 
 - **Entity Name:** Feedback
