@@ -276,28 +276,30 @@ These entity classes define the data structure of the application and are used f
 4. Run the app: Right-click the project in the Package Explorer and click Run As > Spring Boot App.
 
 # API documentation
-- API documentation is available via Swagger UI at http://localhost:8080/swagger-ui/index.html
+- API documentation is available via Swagger UI at http://localhost:8888/swagger-ui/index.html
 
 
 # ER-Diagram
 
-![ERDiagram](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/4552a5f0-6551-427c-ac49-6c01f0365dd5)
+
+![document](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/17d9b160-c518-4da2-aa36-4501415038a5)
 
 # Swagger-ui
 
-![Swagger-UI](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/ddca0f35-ed03-48fb-84bb-c02285b7d7b4)
+![Swagger-UI](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/eec79179-039c-4d65-8f13-ab2ed4516c13)
 
 
 # API Controllers
-![AuthController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/b710d007-554e-48c6-9208-be356aade351)
-![CategoryController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/0096eb40-d0de-4bd2-8f82-aa05bf9cc8f3)
-![ProductController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/6dfd10f2-b2b3-444b-a11c-f5c89371aea4)
-![CartController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/bd4b383a-be96-4e4d-babc-c20fb6ff4ae6)
+![2](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/7dbb58b3-ccf2-448a-9035-2112510766f7)
+![3](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/e1c4fbc8-dbb5-41b8-842f-8d940f9425b6)
+![4](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/0d05ca40-431b-458b-96e7-4ba1c799c2ce)
 
-![OrderController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/3a7e896a-439e-4529-96f4-6cb1fdb5506f)
-![Address Controller](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/9a1d659e-1340-43fa-9a93-7905b8672c0a)
-![UserController](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/3b1311e3-c324-4459-ba40-1f13f1567729)
-
+![5](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/e98d43ef-a9aa-4768-ab66-a1854f2537a6)
+![6](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/398e3a1f-957d-4a86-b9e8-be03ff517bb0)
+![7](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/c814e14d-f501-4b56-8147-186d4a9a0ca6)
+![8](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/0e4357f4-ab00-4c24-9c07-5b9fb4a9e5d3)
+![9](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/5e16efea-ca32-4cc1-9dbc-fbf7e1315568)
+![10](https://github.com/Avanishipsator/Ipsator_Ecommerce/assets/144343086/f713d743-3fc3-4d87-86ac-debe350f7aeb)
 
 
 ## Author
