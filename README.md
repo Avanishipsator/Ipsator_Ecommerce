@@ -55,6 +55,7 @@ This project includes several entity classes that define the data structure of t
   - `roleId`: Role ID
   - `roleName`: Role name
 
+- Represents a user role with a name.
 
 ## User
 
@@ -70,6 +71,10 @@ This project includes several entity classes that define the data structure of t
   - `roles`: Set of roles (Many-to-Many relationship with `Role` entity)
   - `addresses`: List of addresses (Many-to-Many relationship with `Address` entity, mappedBy `users`)
   - `cart`: Cart associated with the user (One-to-One relationship, mapped by `user` in `Cart` class)
+
+- Represents a user of the system with details like name, contact information, email, and password.
+- Includes a list of roles and addresses in many-to-many relationships.
+- Associated with a cart in a one-to-one relationship.
 
 
 ## Address
@@ -87,6 +92,8 @@ This project includes several entity classes that define the data structure of t
 - **Relationships:**
   - Many-to-Many with `User` entity (Mapped by `addresses` in `User` class)
 
+- Represents a physical address with details such as street, building name, city, state, country, and pincode.
+- Associated with users in a many-to-many relationship.
 
 ## Cart
 
@@ -97,6 +104,11 @@ This project includes several entity classes that define the data structure of t
   - `user`: User associated with the cart (One-to-One relationship)
   - `cartItems`: List of cart items (One-to-Many relationship with `CartItem` entity)
   - `totalPrice`: Total price of items in the cart (Double)
+
+- Represents a shopping cart for users.
+- Includes a list of cart items and the total price of items in the cart.
+- Associated with a user in a one-to-one relationship.
+
 
 ## CartItem
 
@@ -110,6 +122,9 @@ This project includes several entity classes that define the data structure of t
   - `discount`: Discount applied to the product
   - `productPrice`: Price of the product
 
+- Represents an item in the shopping cart.
+- Associated with a cart in a many-to-one relationship and with a product in a many-to-one relationship.
+
 
 ## Wishlist
 
@@ -121,6 +136,10 @@ This project includes several entity classes that define the data structure of t
 - **Relationships:**
   - Many-to-One with `User` entity (Mapped by `user` in `Wishlist` class)
   - Many-to-Many with `Product` entity (JoinTable: `wishlist_product`)
+
+- Represents a user's wishlist with a name and a list of products.
+- Associated with a user in a many-to-one relationship and with products in a many-to-many relationship.
+
 
 ## Category
 
@@ -153,6 +172,11 @@ This project includes several entity classes that define the data structure of t
   - One-to-Many with `CartItem` entity (Mapped by `product` in `CartItem` class)
   - One-to-Many with `OrderItem` entity (Mapped by `product` in `OrderItem` class)
 
+- Represents a product available for purchase.
+- Includes details like name, image, description, quantity, price, discount, and special price.
+- Associated with a category in a many-to-one relationship.
+- Linked to cart items and order items in one-to-many relationships.
+
 
 ## Order
 
@@ -167,6 +191,10 @@ This project includes several entity classes that define the data structure of t
   - `payment`: Payment details (One-to-One relationship with `Payment` entity, mapped by `order`)
   - `totalAmount`: Total amount of the order
 
+- Represents a user's order with details such as email, order date, payment method, and total amount.
+- Includes a list of order items and is associated with a payment in a one-to-one relationship.
+
+
 ## OrderItem
 
 - **Entity Name:** OrderItem
@@ -179,6 +207,10 @@ This project includes several entity classes that define the data structure of t
   - `discount`: Discount applied to the product
   - `orderedProductPrice`: Price of the ordered product
   - `orderStatus`: Status of the order (Enum: `DeliveryStatus`)
+
+- Represents an item within an order.
+- Associated with a product in a many-to-one relationship and with an order in a many-to-one relationship.
+
 
 ## Payment
 
@@ -200,6 +232,9 @@ This project includes several entity classes that define the data structure of t
   - `orderItemId`: Identifier for the associated order item
   - `feedbackMessage`: User's feedback message
 
+- Represents feedback provided by users for a specific order item.
+- Contains a feedback message and is associated with an order and an order item.
+
 
 ## Refund
 
@@ -214,6 +249,10 @@ This project includes several entity classes that define the data structure of t
 - **Relationships:**
   - One-to-Many with `RefundHistory` entity (Mapped by `refund` in `RefundHistory` class)
 
+- Represents a refund request for a specific order item.
+- Includes details like refund amount and reason.
+- Associated with a list of refund history entries in a one-to-many relationship.
+
 ## RefundHistory
 
 - **Entity Name:** RefundHistory
@@ -224,6 +263,8 @@ This project includes several entity classes that define the data structure of t
   - `refundstatus`: Status of the refund (Enum: `RefundStatus`)
   - `refundDate`: Date of the refund
 
+- Represents the history of a refund, including status and date.
+- Associated with a refund in a many-to-one relationship.
 
 
 ## Enums
