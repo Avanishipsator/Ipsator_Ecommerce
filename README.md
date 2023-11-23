@@ -47,6 +47,31 @@ Before running the API server, update the database configuration inside the [app
 
 This project includes several entity classes that define the data structure of the application. These entities are used to represent and store data in the underlying database. Below are the entity classes and their descriptions:
 
+## Role
+
+- **Entity Name:** Role
+- **Table Name:** roles
+- **Attributes:**
+  - `roleId`: Role ID
+  - `roleName`: Role name
+
+
+## User
+
+- **Entity Name:** User
+- **Table Name:** users
+- **Attributes:**
+  - `userId` (Auto-generated)
+  - `firstName`: First name (Size: 5-20, Pattern: Alphabets only)
+  - `lastName`: Last name (Size: 5-20, Pattern: Alphabets only)
+  - `mobileNumber`: Mobile number (Size: 10, Pattern: Numeric)
+  - `email`: Email (Unique, Not Null)
+  - `password`: Password
+  - `roles`: Set of roles (Many-to-Many relationship with `Role` entity)
+  - `addresses`: List of addresses (Many-to-Many relationship with `Address` entity, mappedBy `users`)
+  - `cart`: Cart associated with the user (One-to-One relationship, mapped by `user` in `Cart` class)
+
+
 ## Address
 
 - **Entity Name:** Address
@@ -61,6 +86,7 @@ This project includes several entity classes that define the data structure of t
   - `pincode`: Pincode (NotBlank, min 6 characters)
 - **Relationships:**
   - Many-to-Many with `User` entity (Mapped by `addresses` in `User` class)
+
 
 ## Cart
 
@@ -84,6 +110,18 @@ This project includes several entity classes that define the data structure of t
   - `discount`: Discount applied to the product
   - `productPrice`: Price of the product
 
+
+## Wishlist
+
+- **Entity Name:** Wishlist
+- **Table Name:** wishlist
+- **Attributes:**
+  - `wishlistId` (Auto-generated)
+  - `name`: Name of the wishlist (Default: "Default")
+- **Relationships:**
+  - Many-to-One with `User` entity (Mapped by `user` in `Wishlist` class)
+  - Many-to-Many with `Product` entity (JoinTable: `wishlist_product`)
+
 ## Category
 
 - **Entity Name:** Category
@@ -96,29 +134,25 @@ This project includes several entity classes that define the data structure of t
   - One-to-Many with `Product` entity (Mapped by `category` in `Product` class)
 
 
-## CartItem
+## Product
 
-- **Entity Name:** CartItem
-- **Table Name:** cart_items
+- **Entity Name:** Product
+- **Table Name:** products
 - **Attributes:**
-  - `cartItemId` (Auto-generated)
-  - `cart`: Cart to which the item belongs (Many-to-One relationship)
-  - `product`: Product associated with the item (Many-to-One relationship)
+  - `productId` (Auto-generated)
+  - `productName`: Name of the product (NotBlank, min 3 characters)
+  - `image`: Product image
+  - `description`: Product description (NotBlank, min 6 characters)
   - `quantity`: Quantity of the product
+  - `price`: Price of the product
   - `discount`: Discount applied to the product
-  - `productPrice`: Price of the product
+  - `specialPrice`: Special price of the product
+  - `category`: Category to which the product belongs (Many-to-One relationship, mapped by `category` in `Category` class)
+  - `enabled`: Indicates if the product is enabled
+- **Relationships:**
+  - One-to-Many with `CartItem` entity (Mapped by `product` in `CartItem` class)
+  - One-to-Many with `OrderItem` entity (Mapped by `product` in `OrderItem` class)
 
-
-
-## Feedback
-
-- **Entity Name:** Feedback
-- **Table Name:** feedback
-- **Attributes:**
-  - `feedbackId` (Auto-generated)
-  - `orderId`: Identifier for the associated order
-  - `orderItemId`: Identifier for the associated order item
-  - `feedbackMessage`: User's feedback message
 
 ## Order
 
@@ -155,24 +189,17 @@ This project includes several entity classes that define the data structure of t
   - `order`: Order associated with the payment (One-to-One relationship, mapped by `payment` in `Order` class)
   - `paymentMethod`: Payment method (Enum: `PaymentMethod`)
 
-## Product
 
-- **Entity Name:** Product
-- **Table Name:** products
+## Feedback
+
+- **Entity Name:** Feedback
+- **Table Name:** feedback
 - **Attributes:**
-  - `productId` (Auto-generated)
-  - `productName`: Name of the product (NotBlank, min 3 characters)
-  - `image`: Product image
-  - `description`: Product description (NotBlank, min 6 characters)
-  - `quantity`: Quantity of the product
-  - `price`: Price of the product
-  - `discount`: Discount applied to the product
-  - `specialPrice`: Special price of the product
-  - `category`: Category to which the product belongs (Many-to-One relationship, mapped by `category` in `Category` class)
-  - `enabled`: Indicates if the product is enabled
-- **Relationships:**
-  - One-to-Many with `CartItem` entity (Mapped by `product` in `CartItem` class)
-  - One-to-Many with `OrderItem` entity (Mapped by `product` in `OrderItem` class)
+  - `feedbackId` (Auto-generated)
+  - `orderId`: Identifier for the associated order
+  - `orderItemId`: Identifier for the associated order item
+  - `feedbackMessage`: User's feedback message
+
 
 ## Refund
 
@@ -197,38 +224,7 @@ This project includes several entity classes that define the data structure of t
   - `refundstatus`: Status of the refund (Enum: `RefundStatus`)
   - `refundDate`: Date of the refund
 
-## Role
 
-- **Entity Name:** Role
-- **Table Name:** roles
-- **Attributes:**
-  - `roleId`: Role ID
-  - `roleName`: Role name
-
-## User
-
-- **Entity Name:** User
-- **Table Name:** users
-- **Attributes:**
-  - `userId` (Auto-generated)
-  - `firstName`: First name (Size: 5-20, Pattern: Alphabets only)
-  - `lastName`: Last name (Size: 5-20, Pattern: Alphabets only)
-  - `mobileNumber`: Mobile number (Size: 10, Pattern: Numeric)
-  - `email`: Email (Unique, Not Null)
-  - `password`: Password
-  - `roles`: Set of roles (Many-to-Many relationship with `Role` entity)
-  - `addresses`: List of addresses (Many-to-Many relationship with `Address` entity, mappedBy `users`)
-  - `cart`: Cart associated with the user (One-to-One relationship, mapped by `user` in `Cart` class)
-## Wishlist
-
-- **Entity Name:** Wishlist
-- **Table Name:** wishlist
-- **Attributes:**
-  - `wishlistId` (Auto-generated)
-  - `name`: Name of the wishlist (Default: "Default")
-- **Relationships:**
-  - Many-to-One with `User` entity (Mapped by `user` in `Wishlist` class)
-  - Many-to-Many with `Product` entity (JoinTable: `wishlist_product`)
 
 ## Enums
 
